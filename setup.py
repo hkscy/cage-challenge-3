@@ -15,6 +15,7 @@ with open('CybORG/version.txt') as f:
 setup(
     name="CybORG",
     version=CYBORG_VERSION,
+    packages=['CybORG'],
     install_requires=requirements,
     description="A Cyber Security Research Environment",
 )
