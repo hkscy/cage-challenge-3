@@ -308,7 +308,10 @@ class PettingZooParallelWrapper(BaseWrapper):
                             index += 1
                             # add position of drone
                             if hostname in obs:
-                                pos = obs[hostname]['System info'].get('position', (0, 0))
+                                try:
+                                    pos = obs[hostname]['System info'].get('position', (0, 0))
+                                except KeyError as e:
+                                    print(obs[hostname])
                                 new_obs[index] = max(int(pos[0]), 0)
                                 new_obs[index + 1] = max(int(pos[1]), 0)
                                 index += 2
